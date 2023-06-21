@@ -24,15 +24,18 @@ const markup = galleryItems
   </a>
 </li>`
 )
-  .join('');
+    .join('');
+  
 list.insertAdjacentHTML('beforeend', markup)
 list.addEventListener("click", (onClick));
 
-function onClick (event) {
+function onClick(event) {
+    
   event.preventDefault()
   if (event.target.nodeName !== 'IMG'){
    return
   }
+    
   const instance = basicLightbox.create(`
     <img src="${event.target.dataset.source}">
   `)
@@ -40,6 +43,24 @@ function onClick (event) {
 }
   console.log(galleryItems);
 
+// const galleryEl = document.querySelector(".gallery");
+// galleryEl.style.listStyle = "none";
 
+// const pictureCards = createPictureGalery(galleryItems);
+// galleryEl.insertAdjacentHTML('beforeend', pictureCards);
+
+// function createPictureGalery (item){
+// return galleryItems.map(({preview, original, description}) =>{
+//     return`
+//     <li class="gallery__item">
+//    <a class="gallery__link" href="${original}">
+//       <img class="gallery__image" src="${preview}" alt="${description}" />
+//    </a>
+// </li>
+//     `  
+// }).join("");
+// }
+// var lightbox = new SimpleLightbox('.gallery a', 
+// {captionsData: "alt", captionDelay: "250"})
 
 
